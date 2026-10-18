@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="clear-day">
+
+  <!-- Animated aasman (sun, moon, clouds, rain, snow sab yahan JS se banta hai) -->
+  <div id="scene"></div>
+
+  <main class="app">
+    <header>
+      <h1>Weather</h1>
+      <p id="today"></p>
+    </header>
+
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="cityInput" placeholder="City ka naam likho..." autocomplete="off">
+      <button id="searchBtn">Search</button>
+      <button id="locationBtn" class="round" title="Meri location">📍</button>
+    </div>
+
+    <div id="recent" class="recent"></div>
+    <p id="error" class="error hidden"></p>
+
+    <!-- Loading skeleton (shimmer) -->
+    <div id="skeleton" class="card skeleton hidden">
+      <div class="sk circle"></div><div class="sk line"></div><div class="sk big"></div><div class="sk line short"></div>
+    </div>
+
+    <section id="weatherCard" class="card hidden">
+      <div class="reveal" style="--i:0">
+        <h2 id="cityName">City</h2>
+        <p id="localTime" class="muted"></p>
+      </div>
+
+      <div id="icon" class="icon reveal" style="--i:1">☀️</div>
+      <p id="description" class="reveal" style="--i:2">description</p>
+
+      <div class="temp-row reveal" style="--i:3">
+        <span id="temp">0°</span>
+        <button id="unitBtn" class="round" title="°C / °F badlo">°C</button>
+      </div>
+
+      <div class="details">
+        <div class="tile reveal" style="--i:4">
+          <span>💧 Humidity</span><b id="humidity">0%</b>
+          <div class="bar"><i id="humBar"></i></div>
+        </div>
+        <div class="tile reveal" style="--i:5">
+          <span>Wind</span><b id="wind">0</b>
+          <div id="fan" class="fan">🌀</div>
+        </div>
+        <div class="tile reveal" style="--i:6">
+          <span>🌡️ Feels like</span><b id="feels">0</b>
+        </div>
+      </div>
+
+      <p id="tip" class="tip reveal" style="--i:7"></p>
+
+      <h3 class="reveal" style="--i:8">Agle 5 din</h3>
+      <div id="forecast" class="forecast"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
